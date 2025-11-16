@@ -1,23 +1,25 @@
 import { inngest } from "./client";
-import { Agent, agenticOpenai as openai, createAgent } from "@inngest/agent-kit";
+import { createAgent, openai } from "@inngest/agent-kit";
 
 
 export const helloWorld = inngest.createFunction(
   { id: "hello-world" },
   { event: "test/hello.world" },
-  async ({ event, step }) => {
+  async ({ event }) => {
 
 
 
-     const writer = createAgent({
+    const codeAgent = createAgent({
       name: "writer",
       system: "You are an expert writer.  You write readable, concise, simple content.",
-      model: openai({ model: "gpt-4o", step }),
+      model: openai({ model: "gpt-4o" }),
     });
 
+    const { output } = await codeAgent.run(`Write the following snippet: ${event.data.value}`)
 
 
 
-    return { message: `Hello ${event.data.email}!` };
+
+    return { output }
   },
 );
