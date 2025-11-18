@@ -10,8 +10,8 @@ export const helloWorld = inngest.createFunction(
 
 
     const codeAgent = createAgent({
-      name: "writer",
-      system: "You are an expert writer.  You write readable, concise, simple content.",
+      name: "Code Agent",
+      system: "You are an expert Next Js Developer .  You write readable,Maintainable Code . You write simple Next JS & React Snippets",
       model: openai({ model: "gpt-4o" }),
     });
 
