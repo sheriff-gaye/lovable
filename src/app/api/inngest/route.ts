@@ -7,6 +7,6 @@ export const { GET, POST, PUT } = serve({
   client: inngest,
   functions: [
     helloWorld
-    /* your functions will be passed here later! */
+    /* your functions will be passed here later! for me to understnad */
   ],
 });
